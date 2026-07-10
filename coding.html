@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coding Practice</title>
+</head>
+
+<html>
+
+<body style="background-color:#e6f7ff; text-align:center; font-family:Arial;">
+
+    <div style="margin-top:80px;">
+
+        <h1 style="color:#0077b6;">
+            Coding Practice
+        </h1>
+
+        <div style="background-color:white;
+                    width:60%;
+                    margin:auto;
+                    padding:30px;
+                    border-radius:15px;
+                    box-shadow:0px 0px 10px gray;">
+
+            <h3 id="codingQuestion">
+               Write a program to print "Hello World"
+            </h3>
+
+            <textarea rows="10" cols="50"
+            placeholder="Write your code here..."
+            style="padding:10px;
+                   border-radius:10px;">
+            </textarea>
+
+            <br><br>
+
+            <button style="background-color:green;
+                           color:white;
+                           padding:12px 20px;
+                           border:none;
+                           border-radius:10px;
+                           font-size:16px;">
+                Submit Code
+            </button>
+
+            <br><br>
+
+<button onclick="showHint()"
+style="background-color:purple;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+font-size:16px;">
+Show Hint
+</button>
+
+<p id="hintText"></p>
+
+            <br><br>
+
+       <button onclick="nextCodingQuestion()"
+            style="background-color:orange;
+            color:white;
+            padding:12px 20px;
+            border:none;
+            border-radius:10px;
+            font-size:16px;">
+            Next Question
+        </button>
+
+            <br><br>
+
+            <a href="/dashboard">
+                <button style="background-color:blue;
+                               color:white;
+                               padding:12px 20px;
+                               border:none;
+                               border-radius:10px;">
+                    Back to Dashboard
+                </button>
+            </a>
+
+        </div>
+    </div>
+<script>
+
+let codingQuestions = [
+
+'Write a program to print "Hello World"',
+
+'Write a program to check Even or Odd',
+
+'Write a program to find factorial of a number',
+
+'Write a program to reverse a string',
+
+'Write a program to check Prime Number',
+
+'Write a program to check Palindrome',
+
+'Write a program to find Largest of 3 Numbers',
+
+'Write a program to print Fibonacci Series',
+
+'Write a program to check Armstrong Number',
+
+'Write a program to count vowels in a string'
+
+];
+
+let index = 0;
+
+function nextCodingQuestion(){
+
+index++;
+
+if(index < codingQuestions.length){
+
+document.getElementById("codingQuestion").innerHTML =
+codingQuestions[index];
+
+document.getElementById("hintText").innerHTML = "";
+}
+else{
+
+document.getElementById("codingQuestion").innerHTML =
+"🎉 Coding Practice Completed!";
+}
+}
+
+function showHint(){
+
+let hints = [
+
+'Use print("Hello World")',
+
+'Use % operator to check Even or Odd',
+
+'Use loop (for) to calculate factorial',
+
+'Use slicing [::-1] to reverse string',
+
+'Check divisibility from 2 to n-1',
+
+'Compare string with its reverse',
+
+'Use if conditions to compare numbers',
+
+'Use loops to generate Fibonacci series',
+
+'Find sum of digits raised to power of digit count',
+
+'Loop through string and count vowels'
+
+];
+
+document.getElementById("hintText").innerHTML =
+"💡 Hint: " + hints[index];
+}
+</script>
+</body>
+</html>
+</html>
