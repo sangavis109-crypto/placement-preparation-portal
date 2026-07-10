@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+</head>
+
+<body style="background: linear-gradient(to right, #dbeafe, #e0f7fa);
+             font-family: Arial;
+             text-align: center;">
+
+    <div style="margin-top: 60px;">
+
+        <h1 style="color: darkblue;
+                   font-size: 40px;">
+            🎯 Placement Preparation Portal
+        </h1>
+
+        <p style="font-size: 22px;
+                  color: #444;">
+            <span id="welcomeText">
+              Welcome! Choose your preparation section 👇
+            </span>
+
+            <br>
+
+<div style="background-color:#f3f4f6;
+            padding:25px;
+            border-radius:12px;
+            margin-bottom:20px;">
+
+    <h3 style="color:darkblue;">
+        📈 Your Progress
+    </h3>
+
+    <p>✅ Aptitude Quiz Completed</p>
+    <p id="scoreDisplay">
+🎯 Aptitude Score: Not Attempted
+   </p>
+    <p>✅ Interview Questions Viewed</p>
+    <p>✅ Coding Practice Started</p>
+
+</div>
+        </p>
+
+        <div style="background-color: white;
+                    width: 500px;
+                    margin: auto;
+                    padding: 40px;
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 15px gray;">
+
+             <a href="/aptitude">
+                <button style="background-color: #22c55e;
+                               color: white;
+                               width: 350px;
+                               padding: 22px;
+                               border: none;
+                               border-radius: 15px;
+                               font-size: 20px;
+                               margin: 15px;">
+                    🧠 Aptitude Quiz
+                </button>
+            </a>
+
+            <br>
+
+            <a href="/interview">
+                <button style="background-color: #f59e0b;
+                               color: white;
+                               width: 350px;
+                               padding: 22px;
+                               border: none;
+                               border-radius: 15px;
+                               font-size: 20px;
+                               margin: 15px;">
+                    💼 Interview Questions
+                </button>
+            </a>
+
+            <br>
+
+            <a href="/coding">
+                <button style="background-color: #8b5cf6;
+                               color: white;
+                               width: 350px;
+                               padding: 22px;
+                               border: none;
+                               border-radius: 15px;
+                               font-size: 20px;
+                               margin: 15px;">
+                    💻 Coding Practice
+                </button>
+            </a>
+        <br>
+
+        <a href="/completion">
+<button style="background-color:green;
+color:white;
+width:350px;
+padding:22px;
+border:none;
+border-radius:15px;
+font-size:20px;
+margin:15px;">
+🏆 View Completion
+</button>
+</a>
+
+<button onclick="logoutUser()"
+style="background-color:red;
+color:white;
+width:250px;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:18px;
+margin:12px;">
+🚪 Logout
+</button>
+        </div>
+
+    </div>
+<script>
+
+let username =
+localStorage.getItem("username");
+
+if(username){
+
+document.getElementById("welcomeText")
+.innerHTML =
+"Welcome, " +
+username.charAt(0).toUpperCase()
++ username.slice(1)
++ " 👋";
+}
+let aptitudeScore =
+localStorage.getItem("aptitudeScore");
+
+if(aptitudeScore){
+
+document.getElementById("scoreDisplay")
+.innerHTML =
+"🎯 Aptitude Score: " + aptitudeScore;
+}
+
+function logoutUser(){
+    
+localStorage.removeItem("username");
+localStorage.removeItem("aptitudeScore");
+
+window.location.href = "index.html";
+}
+</script>
+<div style="margin-top:40px;
+color:gray;
+font-size:16px;"></div>
+
+Made by Sangavi 🖤 |
+Placement Preparation Portal
+
+</div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Aptitude Questions</title>
+</head>
+
+<body style="background-color:#dff6ff;
+             font-family:Arial;
+             text-align:center;">
+
+    <div style="margin-top:80px;">
+
+        <h1 style="color:darkblue;">
+            Aptitude Quiz
+        </h1>
+
+        <div style="background-color:white;
+                    width:500px;
+                    margin:auto;
+                    padding:20px;
+                    border-radius:15px;
+                    box-shadow:0px 0px 10px gray;">
+
+            <h3 id="question"></h3>
+
+            <div id="options"></div>
+
+            <h3 id="result"></h3>
+
+            <h3>
+                Score:
+                <span id="score">0</span>
+            </h3>
+
+            <button onclick="nextQuestion()"
+                    style="background-color:blue;
+                           color:white;
+                           padding:12px 20px;
+                           border:none;
+                           border-radius:10px;
+                           font-size:16px;">
+                Next Question
+            </button>
+
+        </div>
+
+    </div>
+
+<script>
+
+let quiz = [
+
+{
+question: "Q1. What is 10 + 5?",
+options: ["12", "15", "20", "25"],
+answer: "15"
+},
+
+{
+question: "Q2. What is 20 - 10?",
+options: ["5", "10", "15", "20"],
+answer: "10"
+},
+
+{
+question: "Q3. What is 5 x 2?",
+options: ["8", "10", "15", "20"],
+answer: "10"
+},
+
+{
+question: "Q4. What is 50 / 5?",
+options: ["5", "10", "15", "20"],
+answer: "10"
+},
+
+{
+question: "Q5. What is 25 + 25?",
+options: ["25", "40", "50", "60"],
+answer: "50"
+},
+{
+question: "Q6. What is 12 + 8?",
+options: ["18", "20", "22", "24"],
+answer: "20"
+},
+
+{
+question: "Q7. What is 15 - 5?",
+options: ["5", "10", "15", "20"],
+answer: "10"
+},
+
+{
+question: "Q8. What is 6 x 5?",
+options: ["25", "30", "35", "40"],
+answer: "30"
+},
+
+{
+question: "Q9. What is 81 / 9?",
+options: ["7", "8", "9", "10"],
+answer: "9"
+},
+
+{
+question: "Q10. What is 7 + 6?",
+options: ["11", "12", "13", "14"],
+answer: "13"
+}
+
+];
+
+let index = 0;
+let score = 0;
+
+function loadQuestion() {
+
+document.getElementById("question").innerHTML =
+quiz[index].question;
+
+let optionsHtml = "";
+
+quiz[index].options.forEach(option => {
+
+optionsHtml +=
+`<button onclick="checkAnswer('${option}')"
+style="padding:10px;
+margin:5px;
+border-radius:8px;">
+${option}
+</button>`;
+
+});
+
+document.getElementById("options").innerHTML =
+optionsHtml;
+}
+
+function checkAnswer(answer) {
+
+if(answer == quiz[index].answer){
+
+document.getElementById("result").innerHTML =
+"✅ Correct!";
+
+score++;
+
+document.getElementById("score").innerHTML =
+score;
+}
+else{
+
+document.getElementById("result").innerHTML =
+"❌ Wrong!";
+}
+}
+
+function nextQuestion() {
+
+index++;
+
+if(index < quiz.length){
+
+loadQuestion();
+
+document.getElementById("result").innerHTML =
+"";
+}
+else{
+
+document.getElementById("question").innerHTML =
+"🎉 Quiz Completed!";
+
+document.getElementById("options").innerHTML =
+`
+<button onclick="restartQuiz()"
+style="background-color:green;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+font-size:16px;">
+Restart Quiz
+</button>
+
+<br><br>
+
+<a href="/dashboard">
+<button style="background-color:orange;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+font-size:16px;">
+Back to Dashboard
+</button>
+</a>
+`;
+localStorage.setItem("aptitudeScore", score);
+
+document.getElementById("result").innerHTML =
+"🏆 Final Score: " + score;
+}
+}
+function restartQuiz(){
+
+index = 0;
+score = 0;
+
+document.getElementById("score").innerHTML =
+score;
+
+document.getElementById("result").innerHTML =
+"";
+
+loadQuestion();
+}
+loadQuestion();
+
+</script>
+
+</body>
+</html>
